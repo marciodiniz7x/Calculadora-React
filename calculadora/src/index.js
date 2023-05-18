@@ -9,7 +9,6 @@ root.render(
 
   <div>
 
-    <h1>Calculadora</h1>
     <React.StrictMode>
     <Calculator />
     </React.StrictMode>
