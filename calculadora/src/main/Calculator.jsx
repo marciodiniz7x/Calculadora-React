@@ -34,7 +34,18 @@ export default class Calculator extends Component {
     }
 
     setOperation(operation) {
-        console.log(operation);
+
+        if (this.state.current === 0) {
+            this.setState({ operation, current: 1, clearDisplay: true });
+        } else {
+            const equals = operation === '=';
+            const currentOperation = this.state.operation;
+
+            const values = [...this.state.values];
+            values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`);
+            values[1] = 0;
+        }
+
     }
 
     addDigit(n) {
@@ -53,7 +64,7 @@ export default class Calculator extends Component {
             const newValue = parseFloat(displayValue);
             const values = [...this.state.values];
             values[i] = newValue;
-            this.state({ values });
+            this.setState({ values });
         }
 
     }
