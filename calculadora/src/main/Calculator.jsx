@@ -3,6 +3,7 @@ import "./Calculator.css";
 
 import Button from '../components/Button';
 import Display from "../components/Display";
+import Window from '../components/Window';
  
 export default class Calculator extends Component {
 
@@ -30,7 +31,7 @@ export default class Calculator extends Component {
 
         return (
             <div className="calculator">
-
+                <Window />
                 <Display value={100} />
                 <Button label="AC" click={this.clearMemory} triple/>
                 <Button label="/" click={this.setOperation} operation/>
